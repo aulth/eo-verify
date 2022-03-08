@@ -28,7 +28,7 @@ app.get('/sendotp/:appName/:email', (req, res)=>{
     }
     transporter.sendMail(mailOption, (err, info)=>{
         if(err){
-            res.status(400).json({success:false, message:"Some error occured"})
+            res.status(400).json({success:false, message:"Some error occured", err})
         }else{
             res.status(200).json({success:true, message:`Otp sent to ${email}`, otp:otp})
         }
@@ -45,7 +45,7 @@ app.get('/resend/:appName/:email', (req, res)=>{
     }
     transporter.sendMail(mailOption, (err, info)=>{
         if(err){
-            res.status(400).json({success:false, message:"Some error occured"})
+            res.status(400).json({success:false, message:"Some error occured", err})
         }else{
             res.status(200).json({success:true, message:`New otp sent to ${email}`, otp:otp})
         }
