@@ -38,10 +38,8 @@ body:
 ```
 <br/>
 response: 
-```JSON
-{
+```JSON{
   "success": true,
   "message": "New otp sent to user@gmail.com",
   "otp": 1820
-}
-```
+}```
