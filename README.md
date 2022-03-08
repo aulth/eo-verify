@@ -36,7 +36,8 @@ body:
 "appName":"your_app_name"
 }
 ```
-<br/>
+response: 
+
 ```JSON
 {
   "success": true,
