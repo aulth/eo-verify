@@ -30,11 +30,28 @@ app.get('/sendotp/:appName/:email', (req, res)=>{
         if(err){
             res.status(400).json({success:false, message:"Some error occured"})
         }else{
-            res.status(200).json({success:true, message:`Otp sent to ${email}`})
+            res.status(200).json({success:true, message:`Otp sent to ${email}`, otp:otp})
         }
     })
     res.send(`Otp sent to ${email}`)
-    
+})
+app.get('/resend/:appName/:email', (req, res)=>{
+    const otp = Math.floor(Math.random()*10000)
+    const {email, appName} = req.params;
+    const mailOption = {
+        from:'aulth.usman@gmail.com',
+        to:email,
+        subject:"Otp - Resend - verification",
+        html :`<h2>Your verification code for ${appName} is : ${otp} </h2>`
+    }
+    transporter.sendMail(mailOption, (err, info)=>{
+        if(err){
+            res.status(400).json({success:false, message:"Some error occured"})
+        }else{
+            res.status(200).json({success:true, message:`New otp sent to ${email}`, otp:otp})
+        }
+    })
+    res.send(`New otp sent to ${email}`)
 })
 app.listen(port, ()=>{
     console.log('listenign'+port)
