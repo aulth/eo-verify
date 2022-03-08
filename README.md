@@ -37,7 +37,7 @@ body:
 }
 ```
 <br/>
-response :
+response:
 ```JSON
 {
   "success": true,
