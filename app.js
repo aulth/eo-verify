@@ -10,18 +10,18 @@ const transporter = nodemailer.createTransport({
     port:465,
     secure:true,
     auth:{
-        user:'aulth.usman@gmail.com',
+        user:'eo.verify@gmail.com',
         pass: emailPass
     }
 })
 app.get('/', (req, res)=>{
     res.send("Hello")
 })
-app.get('/sendotp/:appName/:email', (req, res)=>{
+app.post('/sendotp', (req, res)=>{
     const otp = Math.floor(Math.random()*10000)
-    const {email, appName} = req.params;
+    const {email, appName} = req.body;
     const mailOption = {
-        from:'aulth.usman@gmail.com',
+        from:`${appName} <eo.verify@gmail.com>`,
         to:email,
         subject:"Otp - verification",
         html :`<h2>Your verification code for ${appName} is : ${otp} </h2>`
@@ -34,11 +34,11 @@ app.get('/sendotp/:appName/:email', (req, res)=>{
         }
     })
 })
-app.get('/resend/:appName/:email', (req, res)=>{
+app.post('/resend', (req, res)=>{
     const otp = Math.floor(Math.random()*10000)
-    const {email, appName} = req.params;
+    const {email, appName} = req.body
     const mailOption = {
-        from:'aulth.usman@gmail.com',
+        from:`${appName} <eo.verify@gmail.com>`,
         to:email,
         subject:"Otp - Resend - verification",
         html :`<h2>Your verification code for ${appName} is : ${otp} </h2>`
