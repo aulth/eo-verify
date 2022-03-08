@@ -42,6 +42,6 @@ response:
 {
   "success": true,
   "message": "New otp sent to user@gmail.com",
-  "otp": 5048
+  "otp": 3548
 }
 ```
