@@ -7,7 +7,13 @@ Integration of Email verification by OTP
 
 method:'POST'
 <br/>
-body:{"email":"user_email", "appName":"your_app_name"}
+body:
+```JSON
+{
+"email":"user_email", 
+"appName":"your_app_name"
+}
+```
 <br/>
 response: 
 
@@ -23,7 +29,13 @@ response:
 
 method:'POST'
 <br/>
-body:{"email":"user_email", "appName":"your_app_name"}
+body:
+```JSON
+{
+"email":"user_email", 
+"appName":"your_app_name"
+}
+```
 <br/>
 response: 
 ```JSON
