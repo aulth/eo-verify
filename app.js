@@ -33,7 +33,6 @@ app.get('/sendotp/:appName/:email', (req, res)=>{
             res.status(200).json({success:true, message:`Otp sent to ${email}`, otp:otp})
         }
     })
-    res.send(`Otp sent to ${email}`)
 })
 app.get('/resend/:appName/:email', (req, res)=>{
     const otp = Math.floor(Math.random()*10000)
@@ -51,7 +50,6 @@ app.get('/resend/:appName/:email', (req, res)=>{
             res.status(200).json({success:true, message:`New otp sent to ${email}`, otp:otp})
         }
     })
-    res.send(`New otp sent to ${email}`)
 })
 app.listen(port, ()=>{
     console.log('listenign'+port)
