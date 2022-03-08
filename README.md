@@ -37,11 +37,11 @@ body:
 }
 ```
 <br/>
-
+response :
 ```JSON
 {
   "success": true,
-  "message": "Otp sent to user@gmail.com",
+  "message": "New otp sent to user@gmail.com",
   "otp": 5048
 }
 ```
