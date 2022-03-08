@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
+const path = require('path')
+const fs = require('fs')
 const app = express();
 const port = process.env.PORT;
 const emailPass = process.env.pass;
@@ -15,7 +17,7 @@ const transporter = nodemailer.createTransport({
     }
 })
 app.get('/', (req, res)=>{
-    res.send("Hello")
+    res.sendFile(path.join(__dirname+'/index.html'))
 })
 app.post('/sendotp', (req, res)=>{
     const otp = Math.floor(Math.random()*10000)
